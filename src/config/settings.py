@@ -20,16 +20,23 @@ class Settings:
 
         # Data location
         self.data_folder = BASE_DIR / "data"
-
+        
+        # Data location
+        self.input_folder = self.data_folder / "input"
+        
         # CSV filenames
         self.timesheet_location = "timesheet.csv"
         self.billing_location = "billing.csv"
         self.contracts_location = "contracts.csv"
 
         # Full paths (FIXED)
-        self.timesheet = self.data_folder / self.timesheet_location
-        self.billing = self.data_folder / self.billing_location
-        self.contracts = self.data_folder / self.contracts_location
+        self.timesheet = self.input_folder / self.timesheet_location
+        self.billing = self.input_folder / self.billing_location
+        self.contracts = self.input_folder / self.contracts_location
+        
+        # Data output folder
+        self.output_folder = self.data_folder / "output"
+        self.output_file = self.output_folder / "billing_validation.json"
 
 # Global settings instance
 settings = Settings()

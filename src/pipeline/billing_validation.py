@@ -62,7 +62,7 @@ def pipeline_process():
         "Overbilling",
         "Status"
     ]]
-    df.to_json("billing_validation.json", orient="records", indent=4)
+    df.to_json(settings.output_file, orient="records", indent=4)
     
     return("Pipeline complete Succesfully")
 
