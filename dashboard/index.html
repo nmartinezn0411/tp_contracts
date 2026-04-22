@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dashboard de Validacion de Facturacion</title>
+  <link rel="stylesheet" href="/dashboard/styles.css" />
+</head>
+<body>
+  <div class="page-shell">
+    <header class="hero">
+      <div class="hero-copy">
+        <span class="eyebrow">Billing Validation Dashboard</span>
+        <h1>Validacion preventiva de facturas</h1>
+        <p class="hero-text">
+          Identifica discrepancias y marca errores antes de que la factura sea enviada al cliente.
+          Cada caso incluye una explicacion generada por IA para acelerar la revision interna.
+        </p>
+      </div>
+      <div class="hero-actions">
+        <div class="mission-card">
+          <span class="mission-label">Objetivo</span>
+          <p>Reducir ajustes, disputas y sobrefacturacion mediante una revision clara y accionable.</p>
+        </div>
+        <a class="logout-link" href="/logout">Cerrar sesion</a>
+      </div>
+    </header>
+
+    <main class="layout">
+      <section class="panel panel-metrics">
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">Resumen ejecutivo</p>
+            <h2>Indicadores clave</h2>
+          </div>
+          <p class="section-note" id="last-updated">Cargando datos...</p>
+        </div>
+        <div class="metrics-grid" id="metrics-grid"></div>
+      </section>
+
+      <section class="panel panel-insights">
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">Prioridades</p>
+            <h2>Focos de riesgo</h2>
+          </div>
+        </div>
+        <div class="insights-grid">
+          <div class="mini-chart">
+            <div class="mini-chart-head">
+              <h3>Errores por proyecto</h3>
+              <span>Top incidencias</span>
+            </div>
+            <div id="project-breakdown" class="breakdown-list"></div>
+          </div>
+          <div class="mini-chart">
+            <div class="mini-chart-head">
+              <h3>Tipos de discrepancia</h3>
+              <span>Casos marcados</span>
+            </div>
+            <div id="flag-breakdown" class="breakdown-list"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel panel-filters">
+        <div class="section-head">
+          <div>
+            <p class="section-kicker">Exploracion</p>
+            <h2>Filtros del dashboard</h2>
+          </div>
+        </div>
+        <div class="filters-grid">
+          <label class="field">
+            <span>Buscar empleado o proyecto</span>
+            <input id="search-input" type="search" placeholder="Ej. Nelson, Proyecto D" />
+          </label>
+          <label class="field">
+            <span>Estado</span>
+            <select id="status-filter">
+              <option value="ALL">Todos</option>
+              <option value="ERROR">Solo errores</option>
+              <option value="OK">Solo OK</option>
+            </select>
+          </label>
+          <label class="field">
+            <span>Proyecto</span>
+            <select id="project-filter">
+              <option value="ALL">Todos</option>
+            </select>
+          </label>
+          <label class="field">
+            <span>Discrepancia</span>
+            <select id="flag-filter">
+              <option value="ALL">Todas</option>
+              <option value="Rate_Mismatch">Tarifa incorrecta</option>
+              <option value="Hours_Mismatch">Horas inconsistentes</option>
+              <option value="Exceeds_Max_Hours">Exceso de horas</option>
+              <option value="Overbilling">Sobrefacturacion</option>
+            </select>
+          </label>
+        </div>
+      </section>
+
+      <section class="data-grid">
+        <section class="panel table-panel">
+          <div class="section-head">
+            <div>
+              <p class="section-kicker">Casos</p>
+              <h2>Detalle operativo</h2>
+            </div>
+            <p class="section-note"><span id="visible-count">0</span> registros visibles</p>
+          </div>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Estado</th>
+                  <th>Empleado</th>
+                  <th>Proyecto</th>
+                  <th>Horas</th>
+                  <th>Tarifa</th>
+                  <th>Impacto</th>
+                </tr>
+              </thead>
+              <tbody id="cases-body"></tbody>
+            </table>
+          </div>
+        </section>
+
+        <aside class="panel detail-panel">
+          <div class="section-head">
+            <div>
+              <p class="section-kicker">Analisis del caso</p>
+              <h2 id="detail-title">Selecciona un registro</h2>
+            </div>
+          </div>
+          <div id="detail-summary" class="detail-summary">
+            Elige un caso para ver discrepancias, impacto y recomendaciones.
+          </div>
+          <div id="detail-analysis" class="markdown-body"></div>
+        </aside>
+      </section>
+    </main>
+  </div>
+
+  <script src="/dashboard/app.js" defer></script>
+</body>
+</html>
