@@ -3,7 +3,7 @@ Pipeline process to generate
 '''
 import pandas as pd
 from src.config.settings import settings
-
+from src.pipeline.llm import generate_analysis
 
 def pipeline_process():
     # Read the CSV files
@@ -46,23 +46,11 @@ def pipeline_process():
         ) else "OK",
         axis=1
     )
-    output_df = df[[
-        "Employee_ID",
-        "Employee_Name",
-        "Project",
-        "Hours_Worked",
-        "Hours_Billed",
-        "Rate_per_Hour",
-        "Rate_Charged",
-        "Expected_Billing",
-        "Actual_Billing", 
-        "Rate_Mismatch",
-        "Hours_Mismatch",
-        "Exceeds_Max_Hours",
-        "Overbilling",
-        "Status"
-    ]]
+    
+    # GENERATE AI ANALYSIS
+    for idx, row in df.iterrows():
+        df.at[idx, "AI_ANALYSIS"] = "EXAMPLE"
+
     df.to_json(settings.output_file, orient="records", indent=4)
     
     return("Pipeline complete Succesfully")
-
