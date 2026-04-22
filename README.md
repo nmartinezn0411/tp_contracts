@@ -62,6 +62,8 @@ python dashboard.py
 
 6. To access to the dashboard with all the information about the analysis is neccesary to login with the user credentials. 
 
+NOTE: There is also a DockerFile in the rootfolder, so you can create a container of the project if you want to. 
+
 ### Pictures of the project:
 
 #### Login Page
