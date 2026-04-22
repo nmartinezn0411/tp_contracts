@@ -3,7 +3,7 @@ Pipeline process to generate
 '''
 import pandas as pd
 from src.config.settings import settings
-from src.pipeline.llm import generate_analysis
+from src.pipeline.llm import safe_generate
 
 def pipeline_process():
     # Read the CSV files
@@ -49,7 +49,7 @@ def pipeline_process():
     
     # GENERATE AI ANALYSIS
     for idx, row in df.iterrows():
-        df.at[idx, "AI_ANALYSIS"] = "EXAMPLE"
+        df.at[idx, "AI_ANALYSIS"] = safe_generate(str(row))
 
     df.to_json(settings.output_file, orient="records", indent=4)
     
