@@ -88,5 +88,41 @@
         "Overbilling":false,
         "Status":"ERROR",
         "AI_ANALYSIS":"EXAMPLE"
+    },
+    {
+        "Employee_ID":106,
+        "Employee_Name":"Nelson",
+        "Project":"D",
+        "Hours_Worked":20,
+        "Hours_Billed":57,
+        "Rate_Charged":20,
+        "Rate_per_Hour":40,
+        "Max_Hours_Per_Week":50,
+        "Expected_Billing":800,
+        "Actual_Billing":1140,
+        "Rate_Mismatch":true,
+        "Hours_Mismatch":true,
+        "Exceeds_Max_Hours":false,
+        "Overbilling":true,
+        "Status":"ERROR",
+        "AI_ANALYSIS":"EXAMPLE"
+    },
+    {
+        "Employee_ID":107,
+        "Employee_Name":"Manuel",
+        "Project":"E",
+        "Hours_Worked":42,
+        "Hours_Billed":19,
+        "Rate_Charged":43,
+        "Rate_per_Hour":33,
+        "Max_Hours_Per_Week":20,
+        "Expected_Billing":1386,
+        "Actual_Billing":817,
+        "Rate_Mismatch":true,
+        "Hours_Mismatch":true,
+        "Exceeds_Max_Hours":true,
+        "Overbilling":false,
+        "Status":"ERROR",
+        "AI_ANALYSIS":"EXAMPLE"
     }
 ]
