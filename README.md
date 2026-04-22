@@ -1,6 +1,8 @@
-## Scenario: Billing Validation Prototype
+# Billing Validation Prototype Project.
 
-You are provided with datasets representing timesheets, contract rates, and billing reports. Your task is to identify discrepancies and flag errors before invoices are sent to the client.
+The problem has differents datasets representing timesheets, contract rates, and billing reports. The task is to identify discrepancies and flag errors before invoices are sent to the client. 
+
+An AI workflow will be implemented to explain the discrepancies found in the pipeline analysis. 
 
 ### Data description
 
@@ -31,3 +33,49 @@ Use these datasets to identify discrepancies such as overbilling, rate mismatche
 ### Bonus Challenge
 
 Design your solution so it can support multiple clients with different contract rules without requiring code changes
+
+# Workflow run in a machine
+
+Now the steps to run the project in any machine will be explained. 
+
+1. To run the project in any machine the first thing to do is to create the environment for that project in python, this step depends in the OS that the project will be running. Also the file .env needs to be created and this depends of the environment
+
+2. Install all the dependecies from the requirements.txt file.
+
+```
+pip install -r requirements.txt
+```
+
+3. Right now the test data of the project is in the folder src/data/input, but this can be change in any moment. 
+
+4. Run the following command to generate the file src/data/input/billing_validation.json, that will store the analysis made for the pipeline. This file can be generated again with the following command:
+
+```
+python main.py
+```
+
+5. Run the dashboard in port 8000 with the following command:
+
+```
+python dashboard.py
+``` 
+
+6. To access to the dashboard with all the information about the analysis is neccesary to login with the user credentials. 
+
+### Pictures of the project:
+
+#### Login Page
+
+![alt text](src/assets/image.png)
+
+#### KPI values and about info of the project
+
+![alt text](src/assets/image1.png)
+
+#### Stats of the errors
+
+![alt text](src/assets/image-1.png)
+
+#### Detail page with the AI mardown analysis
+
+![alt text](src/assets/image-2.png)

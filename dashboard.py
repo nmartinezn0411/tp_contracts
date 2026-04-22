@@ -11,7 +11,7 @@ load_dotenv()
 
 ROOT = Path(__file__).resolve().parent
 HOST = "0.0.0.0"
-PORT = 8001
+PORT = 8000
 DATA_FILE = ROOT / "src" / "data" / "output" / "billing_validation.json"
 
 USERNAME_APP = os.getenv("USERNAME_APP")
